@@ -243,20 +243,6 @@ const categoryMeta = {
 
 ---
 
-## 📸 Screenshots
-
-Screenshots showing:
-- Home page with hero banner
-- Auction listing with filters
-- Auction detail with bid history
-- Dashboard with analytics
-- Mobile responsive view
-- Dark mode toggle
-
-*(Add screenshots in project report)*
-
----
-
 ## ✨ Key Features Explained
 
 ### 1. Real-Time Bidding
@@ -310,103 +296,9 @@ Through this project, you will master:
 
 ---
 
-## 🎓 Internship Task Details
-
-**Task ID:** WD-AUC-003  
-**Domain:** Auction House  
-**Internship Type:** Free Web Development Internship Online  
-**Timeline:** 7 Days  
-**Difficulty:** Intermediate  
-
-**Submission Requirements:**
-- ✅ GitHub repository with source code
-- ✅ README.md with project details
-- ✅ Screenshots (desktop + mobile)
-- ✅ Project report (1-2 pages)
-- ✅ Demo video (3-5 minutes)
-- ✅ Live website deployment
-- ✅ YouTube video link
-- ✅ Blog post submission
-
----
-
-## 📝 Project Report Outline
-
-**1. Objective**
-- Project goals and target audience
-- Problem statement and solution
-
-**2. Technologies Used**
-- HTML5, CSS3, JavaScript
-- Frameworks/Libraries used
-- Design tools and resources
-
-**3. Features Implemented**
-- Core functionality
-- Bonus features
-- Technical implementation details
-
-**4. Learning Outcomes**
-- Skills acquired
-- Challenges overcome
-- Key takeaways
-
-**5. Challenges & Solutions**
-- Technical obstacles
-- Design decisions
-- Performance optimizations
-
-**6. Future Enhancements**
-- Backend integration
-- Database implementation
-- Additional features
-
----
-
-## 🎬 Video Demonstration Checklist
-
-**Your demo video should include:**
-
-1. **Introduction** (30 seconds)
-   - Project name and purpose
-   - Brief overview of features
-
-2. **Home Page Tour** (1 minute)
-   - Hero section
-   - Featured auctions
-   - Featured statistics
-
-3. **Browsing & Filtering** (1 minute)
-   - Category filtering
-   - Price filtering
-   - Sort options
-
-4. **Auction Detail & Bidding** (1 minute)
-   - Image gallery
-   - Bid placement
-   - Bid history view
-
-5. **Dashboard** (1 minute)
-   - User login
-   - Dashboard analytics
-   - Watchlist management
-
-6. **Responsive Demo** (1 minute)
-   - Mobile view
-   - Tablet view
-   - Dark mode toggle
-
-7. **Code Walkthrough** (1 minute)
-   - File structure
-   - Key functions
-   - Data storage approach
-
----
-
 ## 📞 Support & Resources
 
 - **Internship Platform:** https://www.freeinternships.in
-- **Task Details:** https://www.freeinternships.in/blog/
 - **Company Website:** www.dataalcott.com
 - **Contact:** mail@freeinternships.in | 9600095045
 
@@ -430,9 +322,7 @@ This project is created for educational purposes as part of the Data Alcott Syst
 ## 🔗 Quick Links
 
 - **GitHub Repository:** https://github.com/akshith1506/auction-house-website
-- **Live Website:** [Your GitHub Pages Link]
-- **YouTube Demo:** [Your YouTube Link]
-- **Blog Post:** https://www.freeinternships.in/blog/
+- **Internship Blog:** https://www.freeinternships.in/blog/
 - **Student Code:** DAS-AUC-003
 
 ---
