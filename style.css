@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionHouse | Premium Auction Platform</title>
+    <meta
+      name="description"
+      content="AuctionHouse is a premium online auction platform for art, antiques, jewelry, and luxury collectibles."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwUEQp1/2Q0KC2dP4d4dR4bE0S7jM2l8s3w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrapper">
+        <a href="#home" class="brand" aria-label="AuctionHouse home">
+          <span class="brand-mark">🏛️</span>
+          <span>AuctionHouse</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#auctions">Auctions</a>
+          <a href="#categories">Categories</a>
+          <a href="#register">Register</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#about">About</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="btn btn-outline" data-open-auth>Login</button>
+          <button class="menu-toggle" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#auctions">Auctions</a>
+        <a href="#categories">Categories</a>
+        <a href="#register">Register</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Curated luxury auctions</p>
+            <h1>Own the extraordinary.</h1>
+            <p class="lead">
+              Discover rare art, timeless antiques, exceptional jewelry, and iconic
+              collectibles curated for discerning collectors and modern investors.
+            </p>
+            <div class="hero-actions">
+              <a href="#auctions" class="btn btn-primary">Explore Auctions</a>
+              <a href="#register" class="btn btn-secondary">Register to Bid</a>
+            </div>
+
+            <div class="stat-row">
+              <div>
+                <strong>2.4K+</strong>
+                <span>Active bidders</span>
+              </div>
+              <div>
+                <strong>180+</strong>
+                <span>Live lots</span>
+              </div>
+              <div>
+                <strong>$18.6M</strong>
+                <span>Sales closed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card feature-card large-card">
+              <img
+                src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80"
+                alt="Luxury classic timepiece"
+              />
+              <div class="card-badge">Premium Live Auction</div>
+              <div class="card-info">
+                <div>
+                  <p>Current bid</p>
+                  <h3>$42,500</h3>
+                </div>
+                <button class="btn btn-primary small">Join now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured" class="featured-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Featured lots</p>
+              <h2>Handpicked highlights</h2>
+            </div>
+            <a href="#auctions" class="text-link">View all auctions</a>
+          </div>
+          <div id="featuredAuctions" class="auction-grid"></div>
+        </div>
+      </section>
+
+      <section id="categories" class="section section-alt">
+        <div class="container">
+          <div class="section-header center">
+            <div>
+              <p class="eyebrow">Browse categories</p>
+              <h2>Curated collections</h2>
+            </div>
+          </div>
+          <div id="categoryGrid" class="category-grid"></div>
+        </div>
+      </section>
+
+      <section id="events" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Upcoming events</p>
+              <h2>Private previews & auctions</h2>
+            </div>
+          </div>
+
+          <div class="event-list">
+            <article class="event-item">
+              <div class="event-date">
+                <span>18</span>
+                <small>APR</small>
+              </div>
+              <div class="event-content">
+                <h3>Modern Masters Evening Sale</h3>
+                <p>London • 6:30 PM</p>
+              </div>
+              <button class="btn btn-secondary small">RSVP</button>
+            </article>
+
+            <article class="event-item">
+              <div class="event-date">
+                <span>27</span>
+                <small>APR</small>
+              </div>
+              <div class="event-content">
+                <h3>Collectors’ Preview: Rare Watches</h3>
+                <p>New York • 11:00 AM</p>
+              </div>
+              <button class="btn btn-secondary small">RSVP</button>
+            </article>
+
+            <article class="event-item">
+              <div class="event-date">
+                <span>05</span>
+                <small>MAY</small>
+              </div>
+              <div class="event-content">
+                <h3>Antiques & Jewelry Spotlight</h3>
+                <p>Paris • 4:00 PM</p>
+              </div>
+              <button class="btn btn-secondary small">RSVP</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="auctions" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Live marketplace</p>
+              <h2>Browse all auctions</h2>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="field">
+              <label for="categoryFilter">Category</label>
+              <select id="categoryFilter">
+                <option value="all">All</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="priceFilter">Price</label>
+              <select id="priceFilter">
+                <option value="all">Any budget</option>
+                <option value="below-25000">Below $25,000</option>
+                <option value="25000-75000">$25,000 – $75,000</option>
+                <option value="75000-plus">$75,000+</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="statusFilter">Sort by</label>
+              <select id="statusFilter">
+                <option value="ending-soon">Ending soon</option>
+                <option value="newest">Newest</option>
+                <option value="highest">Highest bid</option>
+                <option value="premium">Premium lots</option>
+              </select>
+            </div>
+
+            <label class="checkbox-wrap">
+              <input type="checkbox" id="premiumOnly" />
+              <span>Premium only</span>
+            </label>
+          </div>
+
+          <div id="auctionList" class="auction-grid listing-grid"></div>
+        </div>
+      </section>
+
+      <section id="details" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Auction detail</p>
+              <h2>Lot insight</h2>
+            </div>
+          </div>
+          <div id="auctionDetail" class="detail-panel"></div>
+        </div>
+      </section>
+
+      <section id="register" class="section section-alt">
+        <div class="container register-grid">
+          <div>
+            <p class="eyebrow">Join the auction house</p>
+            <h2>Register to bid with confidence</h2>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Secure bidder verification</li>
+              <li><i class="fa-solid fa-circle-check"></i> Real-time bidding alerts</li>
+              <li><i class="fa-solid fa-circle-check"></i> Secure payment protection</li>
+            </ul>
+          </div>
+
+          <form id="registerForm" class="form-card">
+            <div class="form-row two-col">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input id="name" type="text" placeholder="John Smith" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
+              </div>
+              <div class="field">
+                <label for="country">Country</label>
+                <input id="country" type="text" placeholder="United States" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="interests">Collector interests</label>
+              <input id="interests" type="text" placeholder="Art, Watches, Antiquities" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create account</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Member dashboard</p>
+              <h2>Track your bids</h2>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="dashboard-card accent-card">
+              <p>Active bids</p>
+              <h3 id="activeBidsCount">0</h3>
+            </div>
+            <div class="dashboard-card">
+              <p>Watching</p>
+              <h3 id="watchlistCount">0</h3>
+            </div>
+            <div class="dashboard-card">
+              <p>Won items</p>
+              <h3 id="wonItemsCount">0</h3>
+            </div>
+            <div class="dashboard-card">
+              <p>Spend this year</p>
+              <h3 id="annualSpend">$0</h3>
+            </div>
+          </div>
+
+          <div class="dashboard-panels">
+            <div class="panel">
+              <h3>My bids</h3>
+              <div id="myBidsList" class="mini-list"></div>
+            </div>
+            <div class="panel">
+              <h3>Watchlist</h3>
+              <div id="watchlistList" class="mini-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section-alt">
+        <div class="container about-grid">
+          <div>
+            <p class="eyebrow">Our story</p>
+            <h2>Trusted expertise in collecting</h2>
+            <p>
+              AuctionHouse brings together collectors, institutions, and sellers with
+              a refined experience rooted in trust, research, and exceptional service.
+            </p>
+            <p>
+              From museum-grade art to heirloom jewelry and one-of-a-kind antiques, we
+              curate auctions designed to inspire confidence and connect the world’s
+              most remarkable objects with passionate buyers.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <div class="team-card">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+                alt="Head curator"
+              />
+              <h4>Amelia Ross</h4>
+              <p>Head Curator</p>
+            </div>
+            <div class="team-card">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+                alt="Auction director"
+              />
+              <h4>Julian Moreau</h4>
+              <p>Auction Director</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section">
+        <div class="container">
+          <div class="section-header center">
+            <div>
+              <p class="eyebrow">Client stories</p>
+              <h2>Why collectors trust us</h2>
+            </div>
+          </div>
+
+          <div id="testimonialList" class="testimonial-grid"></div>
+        </div>
+      </section>
+
+      <section id="blog" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">News & insights</p>
+              <h2>Latest market commentary</h2>
+            </div>
+          </div>
+          <div id="blogList" class="blog-grid"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Contact us</p>
+            <h2>Let’s discuss your next acquisition</h2>
+            <div class="contact-info">
+              <p><i class="fa-solid fa-location-dot"></i> 18 Park Avenue, New York, NY</p>
+              <p><i class="fa-solid fa-phone"></i> +1 (212) 555-0147</p>
+              <p><i class="fa-solid fa-envelope"></i> hello@auctionhouse.com</p>
+            </div>
+          </div>
+
+          <form id="contactForm" class="form-card">
+            <div class="field">
+              <label for="contactName">Your name</label>
+              <input id="contactName" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="contactEmail">Email</label>
+              <input id="contactEmail" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="5" placeholder="Tell us about your interest..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send inquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© 2026 AuctionHouse. Premium auctions, refined taste.</p>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#auctions">Auctions</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-auth></div>
+      <div class="modal-card">
+        <button class="modal-close" aria-label="Close auth form" data-close-auth>
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-auth-tab="login">Login</button>
+          <button class="tab-btn" data-auth-tab="register">Register</button>
+        </div>
+
+        <form id="loginForm" class="auth-form active">
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" type="email" required />
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" type="password" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <form id="signupForm" class="auth-form">
+          <div class="field">
+            <label for="signupName">Full Name</label>
+            <input id="signupName" type="text" required />
+          </div>
+          <div class="field">
+            <label for="signupEmail">Email</label>
+            <input id="signupEmail" type="email" required />
+          </div>
+          <div class="field">
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" type="password" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Create an account</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
