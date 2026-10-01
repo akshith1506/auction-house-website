@@ -1,1308 +1,784 @@
-:root {
-  --bg: #0d1321;
-  --panel: #171f2f;
-  --panel-strong: #101827;
-  --panel-soft: #1d2940;
-  --card: rgba(255, 255, 255, 0.04);
-  --card-hover: rgba(255, 255, 255, 0.06);
-  --text: #f3f4f6;
-  --muted: #c1c8d6;
-  --gold: #d4a574;
-  --gold-dark: #a77743;
-  --line: rgba(196, 202, 218, 0.18);
-  --success: #83dba8;
-  --danger: #ff7a7a;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  --container: min(1200px, calc(100% - 2rem));
-}
-
-body.light-mode {
-  --bg: #f5f1ea;
-  --panel: #ffffff;
-  --panel-strong: #f0ede8;
-  --panel-soft: #f9f5f0;
-  --card: rgba(17, 24, 39, 0.02);
-  --card-hover: rgba(17, 24, 39, 0.04);
-  --text: #1a1a1a;
-  --muted: #525d71;
-  --gold: #b57d40;
-  --gold-dark: #8b5a2b;
-  --line: rgba(24, 38, 54, 0.08);
-  --shadow: 0 18px 42px rgba(27, 38, 61, 0.12);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, var(--bg) 0%, #0f172a 100%);
-  color: var(--text);
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-body.light-mode {
-  background: linear-gradient(180deg, var(--bg) 0%, #efe7de 100%);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.container {
-  width: var(--container);
-  margin: 0 auto;
-}
-
-.section {
-  padding: 5rem 0;
-}
-
-.section-alt {
-  background: rgba(255, 255, 255, 0.015);
-}
-
-.eyebrow {
-  margin: 0 0 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--gold);
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: -0.03em;
-}
-
-h1 {
-  font-size: clamp(3rem, 5vw, 5rem);
-  line-height: 0.92;
-}
-
-h2 {
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
-  line-height: 1;
-}
-
-h3 {
-  font-size: clamp(1.8rem, 2vw, 2.3rem);
-}
-
-p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(9, 13, 23, 0.82);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
-
-body.light-mode .topbar {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.nav-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 76px;
-  gap: 1rem;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(212, 165, 116, 0.16);
-  border: 1px solid rgba(212, 165, 116, 0.35);
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.3rem;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
-.desktop-nav a:hover,
-.footer-links a:hover,
-.text-link:hover {
-  color: var(--gold);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.icon-btn,
-.menu-toggle {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 999px;
-  padding: 0.92rem 1.4rem;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--gold) 0%, #f0c38b 100%);
-  color: #111827;
-  box-shadow: 0 18px 28px rgba(212, 165, 116, 0.28);
-}
-
-.btn-secondary,
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--text);
-}
-
-.btn.small {
-  padding: 0.7rem 1rem;
-  font-size: 0.8rem;
-}
-
-.hero-section {
-  padding: 4.5rem 0 3rem;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.hero-copy {
-  padding-right: 1rem;
-}
-
-.lead {
-  max-width: 620px;
-  margin: 1.2rem 0 2rem;
-  font-size: 1.04rem;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2.4rem;
-}
-
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(110px, 1fr));
-  gap: 1rem;
-  max-width: 520px;
-}
-
-.stat-row div {
-  padding: 1rem 1.2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-}
-
-.stat-row strong {
-  display: block;
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.stat-row span {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.hero-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
-  border: 1px solid var(--line);
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.feature-card {
-  position: relative;
-}
-
-.feature-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 520px;
-  object-fit: cover;
-}
-
-.card-badge {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  background: rgba(17, 24, 39, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #fff;
-  border-radius: 999px;
-  padding: 0.5rem 0.9rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.card-info {
-  position: absolute;
-  left: 1.2rem;
-  right: 1.2rem;
-  bottom: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 1rem;
-  padding: 1rem 1.1rem;
-  background: rgba(11, 17, 29, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-}
-
-.card-info p {
-  margin: 0 0 0.2rem;
-  color: #dbe2f2;
-}
-
-.card-info h3 {
-  margin: 0;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.section-header.center {
-  justify-content: center;
-  text-align: center;
-}
-
-.text-link {
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.auction-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.3rem;
-}
-
-.auction-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.auction-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(212, 165, 116, 0.7);
-}
-
-.auction-image {
-  position: relative;
-}
-
-.auction-image img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.premium-tag {
-  position: absolute;
-  inset: 1rem auto auto 1rem;
-  background: rgba(212, 165, 116, 0.18);
-  border: 1px solid rgba(212, 165, 116, 0.45);
-  border-radius: 999px;
-  padding: 0.45rem 0.7rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #f8d8a2;
-}
-
-.watch-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(10, 14, 22, 0.65);
-  color: #fff;
-  border-radius: 50%;
-}
-
-.auction-body {
-  padding: 1.2rem 1.2rem 1.4rem;
-}
-
-.meta-row,
-.price-row,
-.auction-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.meta-row {
-  margin-bottom: 0.8rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.auction-body h3 {
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-}
-
-.auction-description {
-  margin: 0.6rem 0 1rem;
-  font-size: 0.95rem;
-}
-
-.price-row {
-  margin-bottom: 1rem;
-}
-
-.price-row strong {
-  color: var(--gold);
-  font-size: 1.6rem;
-}
-
-.tag {
-  background: rgba(131, 219, 168, 0.12);
-  border: 1px solid rgba(131, 219, 168, 0.35);
-  color: var(--success);
-  padding: 0.36rem 0.6rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.72rem;
-}
-
-.auction-footer {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
-}
-
-.timer {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.2rem;
-}
-
-.category-card {
-  padding: 1.5rem 1.2rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  text-align: center;
-}
-
-.category-card .icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  margin-bottom: 1rem;
-  background: rgba(212, 165, 116, 0.12);
-  color: var(--gold);
-  font-size: 1.5rem;
-}
-
-.event-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.event-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 1.25rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-}
-
-.event-date {
-  width: 74px;
-  height: 74px;
-  border-radius: 18px;
-  background: rgba(212, 165, 116, 0.12);
-  border: 1px solid rgba(212, 165, 116, 0.28);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-}
-
-.event-date span {
-  font-size: 1.7rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.event-date small {
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.filter-bar {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  gap: 1rem;
-  align-items: end;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 1rem;
-  margin-bottom: 2rem;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.field label,
-.checkbox-wrap {
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 0.82rem 0.9rem;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid rgba(212, 165, 116, 0.28);
-  border-color: rgba(212, 165, 116, 0.45);
-}
-
-.checkbox-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 0.9rem 1rem;
-}
-
-.checkbox-wrap input {
-  width: auto;
-}
-
-.listing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.detail-panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
-}
-
-.detail-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-}
-
-.gallery-stack {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1rem;
-}
-
-.gallery-main img,
-.gallery-side img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.gallery-main img {
-  min-height: 420px;
-}
-
-.gallery-side {
-  display: grid;
-  gap: 1rem;
-}
-
-.gallery-side img {
-  min-height: 200px;
-}
-
-.detail-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.detail-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.price-box {
-  padding: 1rem 1.1rem;
-  background: rgba(212, 165, 116, 0.08);
-  border: 1px solid rgba(212, 165, 116, 0.25);
-  border-radius: 16px;
-}
-
-.price-box strong {
-  color: var(--gold);
-  font-size: 2rem;
-}
-
-.bid-actions {
-  display: flex;
-  gap: 0.8rem;
-}
-
-.bid-form {
-  display: flex;
-  gap: 0.8rem;
-  align-items: end;
-}
-
-.bid-form .field {
-  flex: 1;
-}
-
-.history-list {
-  display: grid;
-  gap: 0.8rem;
-  margin-top: 0.5rem;
-}
-
-.history-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 0.9rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-}
-
-.register-grid,
-.contact-grid,
-.about-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.check-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.6rem 0 0;
-  display: grid;
-  gap: 0.9rem;
-  color: var(--text);
-}
-
-.check-list i {
-  color: var(--success);
-  margin-right: 0.7rem;
-}
-
-.form-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.2rem;
-  box-shadow: var(--shadow);
-}
-
-.form-row.two-col {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.4rem;
-}
-
-.dashboard-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 1.2rem 1rem;
-}
-
-.accent-card {
-  background: linear-gradient(145deg, rgba(212, 165, 116, 0.12), rgba(212, 165, 116, 0.03));
-  border-color: rgba(212, 165, 116, 0.25);
-}
-
-.dashboard-card p {
-  margin: 0 0 0.5rem;
-}
-
-.dashboard-card h3 {
-  font-size: 2rem;
-}
-
-.dashboard-panels {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 1.25rem;
-}
-
-.mini-list {
-  display: grid;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.mini-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 0.9rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--line);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.team-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.team-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.team-card h4,
-.team-card p {
-  padding: 0 1rem;
-}
-
-.team-card h4 {
-  margin-top: 1rem;
-  font-size: 1.7rem;
-}
-
-.team-card p {
-  margin: 0.2rem 0 1rem;
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.testimonial-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 1.4rem;
-}
-
-.testimonial-card .stars {
-  color: var(--gold);
-  margin-bottom: 0.85rem;
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.blog-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  overflow: hidden;
-}
-
-.blog-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.blog-content {
-  padding: 1.1rem 1rem 1.3rem;
-}
-
-.blog-content .meta {
-  color: var(--gold);
-  font-size: 0.8rem;
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.contact-info {
-  display: grid;
-  gap: 0.8rem;
-  margin-top: 1.1rem;
-}
-
-.contact-info p {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.contact-info i {
-  width: 26px;
-  height: 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(212, 165, 116, 0.12);
-  color: var(--gold);
-}
-
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.015);
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 1rem;
-  color: var(--muted);
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  z-index: 100;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 6, 14, 0.72);
-}
-
-.modal-card {
-  position: relative;
-  z-index: 1;
-  width: min(520px, calc(100% - 2rem));
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.4rem;
-  box-shadow: var(--shadow);
-}
-
-.modal-close {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--text);
-}
-
-.auth-tabs {
-  display: flex;
-  gap: 0.8rem;
-  margin: 0.7rem 0 1.2rem;
-}
-
-.tab-btn {
-  flex: 1;
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.8rem 1rem;
-}
-
-.tab-btn.active {
-  background: rgba(212, 165, 116, 0.12);
-  border-color: rgba(212, 165, 116, 0.35);
-  color: var(--gold);
-}
-
-.auth-form {
-  display: none;
-}
-
-.auth-form.active {
-  display: block;
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: 0.9rem;
-  padding: 1rem 1.2rem 1.3rem;
-  border-top: 1px solid var(--line);
-}
-
-.mobile-menu.open {
-  display: flex;
-}
-
-@media (max-width: 980px) {
-  .desktop-nav {
-    display: none;
+const auctions = [
+  {
+    id: 1,
+    title: 'The Imperial Rose',
+    category: 'Jewelry & Watches',
+    type: 'Premium',
+    price: 42000,
+    startPrice: 22000,
+    reservePrice: 30000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 60 * 46).toISOString(),
+    seller: 'Maison de Lune',
+    status: 'Live',
+    description:
+      'A rare diamond-set rose pendant and matching earrings, cherished for its impeccable craftsmanship and luminous brilliance.',
+    images: [
+      'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'Lena M.', amount: 28500 },
+      { bidder: 'Martin F.', amount: 32000 },
+      { bidder: 'Nico P.', amount: 36000 },
+      { bidder: 'Sofia D.', amount: 42000 }
+    ],
+    premium: true,
+    featured: true
+  },
+  {
+    id: 2,
+    title: 'Midnight Nocturne',
+    category: 'Art & Paintings',
+    type: 'Featured',
+    price: 68000,
+    startPrice: 35000,
+    reservePrice: 47000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5 + 1000 * 60 * 90).toISOString(),
+    seller: 'Velvet Canvas Studio',
+    status: 'Live',
+    description:
+      'A mesmerizing abstract masterpiece by a rising modern artist, blending velvet tones and subtle gold detail.',
+    images: [
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'Ariana S.', amount: 36000 },
+      { bidder: 'Leo T.', amount: 41000 },
+      { bidder: 'Ezra N.', amount: 52000 },
+      { bidder: 'Grace W.', amount: 68000 }
+    ],
+    premium: true,
+    featured: true
+  },
+  {
+    id: 3,
+    title: 'Chronograph Heritage',
+    category: 'Jewelry & Watches',
+    type: 'New',
+    price: 24000,
+    startPrice: 14000,
+    reservePrice: 18000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 23 + 1000 * 60 * 20).toISOString(),
+    seller: 'The Horology House',
+    status: 'Live',
+    description:
+      'A classic mechanical chronograph known for exceptional balance and collector appeal in pristine original condition.',
+    images: [
+      'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'James K.', amount: 14500 },
+      { bidder: 'Emma B.', amount: 17500 },
+      { bidder: 'Owen H.', amount: 21500 },
+      { bidder: 'Thisa R.', amount: 24000 }
+    ],
+    premium: false,
+    featured: true
+  },
+  {
+    id: 4,
+    title: 'The Baroque Cabinet',
+    category: 'Antiques & Collectibles',
+    type: 'Collector Pick',
+    price: 33000,
+    startPrice: 17000,
+    reservePrice: 22000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 40).toISOString(),
+    seller: 'Heritage & Co.',
+    status: 'Live',
+    description:
+      'An intricately hand-carved antique cabinet with gilt detailing and storied provenance from a European estate.',
+    images: [
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'Carla M.', amount: 18500 },
+      { bidder: 'Theo R.', amount: 22500 },
+      { bidder: 'Nina J.', amount: 27500 },
+      { bidder: 'Olivia P.', amount: 33000 }
+    ],
+    premium: false,
+    featured: false
+  },
+  {
+    id: 5,
+    title: 'Velvet Vantage',
+    category: 'Luxury & Automobiles',
+    type: 'Iconic',
+    price: 98000,
+    startPrice: 61000,
+    reservePrice: 72000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 57 + 1000 * 60 * 18).toISOString(),
+    seller: 'Grand Class Motors',
+    status: 'Live',
+    description:
+      'An exceptional classic motorcar with elegant craftsmanship and rare factory options, ready for a new custodian.',
+    images: [
+      'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'Darius Q.', amount: 62000 },
+      { bidder: 'Ria K.', amount: 76000 },
+      { bidder: 'Ethan B.', amount: 89000 },
+      { bidder: 'Pia L.', amount: 98000 }
+    ],
+    premium: true,
+    featured: false
+  },
+  {
+    id: 6,
+    title: 'Eclipsed Relic',
+    category: 'Antiques & Collectibles',
+    type: 'Rare Find',
+    price: 15500,
+    startPrice: 9000,
+    reservePrice: 12000,
+    endDate: new Date(Date.now() + 1000 * 60 * 60 * 6 + 1000 * 60 * 35).toISOString(),
+    seller: 'The Archives Vault',
+    status: 'Live',
+    description:
+      'A rare historical artifact admired for its unique provenance and exceptional preservation through generations.',
+    images: [
+      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80'
+    ],
+    bidHistory: [
+      { bidder: 'Iris V.', amount: 9800 },
+      { bidder: 'Marcus C.', amount: 12000 },
+      { bidder: 'Liam D.', amount: 13800 },
+      { bidder: 'Sana Y.', amount: 15500 }
+    ],
+    premium: false,
+    featured: false
+  }
+];
+
+const blogPosts = [
+  {
+    title: 'How vintage watches are redefining luxury portfolios',
+    date: 'April 12, 2026',
+    image:
+      'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    title: 'Five emerging artists to watch in the next collector cycle',
+    date: 'April 08, 2026',
+    image:
+      'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    title: 'What modern buyers look for in signed antiques',
+    date: 'April 02, 2026',
+    image:
+      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80'
+  }
+];
+
+const testimonials = [
+  {
+    quote:
+      'The experience felt deeply personalized and the bidding interface made every decision simple and secure.',
+    name: 'Maya L.',
+    role: 'Private collector'
+  },
+  {
+    quote:
+      'We sold a rare piece within days, and the attention to detail throughout the auction process was exceptional.',
+    name: 'Owen T.',
+    role: 'Seller'
+  },
+  {
+    quote:
+      'The presentation, catalog quality and expert support are on par with the world's top auction houses.',
+    name: 'Sophie K.',
+    role: 'Art advisor'
+  }
+];
+
+const categoryMeta = {
+  'Art & Paintings': { icon: 'fa-palette' },
+  'Antiques & Collectibles': { icon: 'fa-gem' },
+  'Jewelry & Watches': { icon: 'fa-ring' },
+  'Luxury & Automobiles': { icon: 'fa-car' }
+};
+
+const state = {
+  selectedAuctionId: 1,
+  watchlist: new Set(JSON.parse(localStorage.getItem('auctionWatchlist') || '[]')),
+  currentUser: JSON.parse(localStorage.getItem('auctionUser') || 'null'),
+  sellerListings: JSON.parse(localStorage.getItem('sellerListings') || '[]')
+};
+
+const formatCurrency = (value) =>
+  new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0
+  }).format(value);
+
+const getAuctionById = (id) => auctions.find((auction) => auction.id === Number(id));
+
+const getTimeRemaining = (dateString) => {
+  const diff = new Date(dateString) - new Date();
+  if (diff <= 0) return 'Closed';
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+  return `${days}d ${hours}h ${minutes}m left`;
+};
+
+const renderFeaturedAuctions = () => {
+  const container = document.getElementById('featuredAuctions');
+  const featured = auctions.filter((auction) => auction.featured).slice(0, 3);
+
+  container.innerHTML = featured
+    .map(
+      (auction) => `
+        <article class="auction-card">
+          <div class="auction-image">
+            <img src="${auction.images[0]}" alt="${auction.title}" />
+            ${auction.premium ? '<span class="premium-tag">Premium</span>' : ''}
+            <button class="watch-btn" data-watch="${auction.id}" aria-label="Add to watchlist">
+              <i class="${state.watchlist.has(auction.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}"></i>
+            </button>
+          </div>
+          <div class="auction-body">
+            <div class="meta-row">
+              <span>${auction.category}</span>
+              <span>${auction.status}</span>
+            </div>
+            <h3>${auction.title}</h3>
+            <p class="auction-description">${auction.description}</p>
+            <div class="price-row">
+              <span>Current bid</span>
+              <strong>${formatCurrency(auction.price)}</strong>
+            </div>
+            <div class="auction-footer">
+              <span class="timer">${getTimeRemaining(auction.endDate)}</span>
+              <button class="btn btn-secondary small" data-select-auction="${auction.id}">View lot</button>
+            </div>
+          </div>
+        </article>
+      `
+    )
+    .join('');
+};
+
+const renderCategoryGrid = () => {
+  const container = document.getElementById('categoryGrid');
+  const categories = Object.keys(categoryMeta);
+
+  container.innerHTML = categories
+    .map(
+      (category) => `
+        <button class="category-card" data-category-filter="${category}">
+          <span class="icon"><i class="fa-solid ${categoryMeta[category].icon}"></i></span>
+          <h3>${category}</h3>
+          <p>${auctions.filter((auction) => auction.category === category).length} live lots</p>
+        </button>
+      `
+    )
+    .join('');
+};
+
+const renderAuctionList = () => {
+  const container = document.getElementById('auctionList');
+  const categoryFilter = document.getElementById('categoryFilter').value;
+  const priceFilter = document.getElementById('priceFilter').value;
+  const statusFilter = document.getElementById('statusFilter').value;
+  const premiumOnly = document.getElementById('premiumOnly').checked;
+
+  let filtered = [...auctions];
+
+  if (categoryFilter !== 'all') {
+    filtered = filtered.filter((auction) => auction.category === categoryFilter);
   }
 
-  .menu-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  if (premiumOnly) {
+    filtered = filtered.filter((auction) => auction.premium);
   }
 
-  .hero-grid,
-  .detail-layout,
-  .register-grid,
-  .contact-grid,
-  .about-grid,
-  .dashboard-panels,
-  .filter-bar {
-    grid-template-columns: 1fr;
+  if (priceFilter !== 'all') {
+    filtered = filtered.filter((auction) => {
+      if (priceFilter === 'below-25000') return auction.price < 25000;
+      if (priceFilter === '25000-75000') return auction.price >= 25000 && auction.price <= 75000;
+      return auction.price > 75000;
+    });
   }
 
-  .auction-grid,
-  .category-grid,
-  .testimonial-grid,
-  .blog-grid,
-  .dashboard-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  if (statusFilter === 'ending-soon') {
+    filtered.sort((a, b) => new Date(a.endDate) - new Date(b.endDate));
+  } else if (statusFilter === 'highest') {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (statusFilter === 'newest') {
+    filtered.sort((a, b) => b.id - a.id);
+  } else if (statusFilter === 'premium') {
+    filtered.sort((a, b) => Number(b.premium) - Number(a.premium));
   }
 
-  .section-header {
-    align-items: start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 640px) {
-  .auction-grid,
-  .category-grid,
-  .testimonial-grid,
-  .blog-grid,
-  .dashboard-grid,
-  .form-row.two-col {
-    grid-template-columns: 1fr;
+  if (!filtered.length) {
+    container.innerHTML = '<div class="empty-state">No lots match your filters.</div>';
+    return;
   }
 
-  .hero-section {
-    padding-top: 2.8rem;
+  container.innerHTML = filtered
+    .map(
+      (auction) => `
+        <article class="auction-card">
+          <div class="auction-image">
+            <img src="${auction.images[0]}" alt="${auction.title}" />
+            ${auction.premium ? '<span class="premium-tag">Premium</span>' : ''}
+            <button class="watch-btn" data-watch="${auction.id}" aria-label="Add to watchlist">
+              <i class="${state.watchlist.has(auction.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}"></i>
+            </button>
+          </div>
+          <div class="auction-body">
+            <div class="meta-row">
+              <span>${auction.category}</span>
+              <span>${auction.type}</span>
+            </div>
+            <h3>${auction.title}</h3>
+            <p class="auction-description">${auction.description}</p>
+            <div class="price-row">
+              <span>Current bid</span>
+              <strong>${formatCurrency(auction.price)}</strong>
+            </div>
+            <div class="auction-footer">
+              <span class="timer">${getTimeRemaining(auction.endDate)}</span>
+              <button class="btn btn-secondary small" data-select-auction="${auction.id}">View lot</button>
+            </div>
+          </div>
+        </article>
+      `
+    )
+    .join('');
+};
+
+const renderAuctionDetail = () => {
+  const detail = document.getElementById('auctionDetail');
+  const auction = getAuctionById(state.selectedAuctionId) || auctions[0];
+
+  const latestBid = auction.bidHistory[auction.bidHistory.length - 1];
+  const statusLabel = auction.price >= auction.reservePrice ? 'Reserve met' : 'Reserve pending';
+
+  detail.innerHTML = `
+    <div class="detail-layout">
+      <div class="gallery-stack">
+        <div class="gallery-main">
+          <img src="${auction.images[0]}" alt="${auction.title}" />
+        </div>
+        <div class="gallery-side">
+          <img src="${auction.images[1]}" alt="${auction.title} detail 1" />
+          <img src="${auction.images[2]}" alt="${auction.title} detail 2" />
+        </div>
+      </div>
+
+      <div class="detail-copy">
+        <div class="detail-heading">
+          <div>
+            <p class="eyebrow">${auction.category}</p>
+            <h2>${auction.title}</h2>
+          </div>
+          <span class="tag">${statusLabel}</span>
+        </div>
+
+        <p>${auction.description}</p>
+
+        <div class="price-box">
+          <p>Current bid</p>
+          <strong>${formatCurrency(auction.price)}</strong>
+          <p>Ends in: ${getTimeRemaining(auction.endDate)}</p>
+        </div>
+
+        <div class="bid-actions">
+          <button class="btn btn-primary" data-bid-action="quick">Quick bid</button>
+          <button class="btn btn-secondary" data-watch="${auction.id}">Watchlist</button>
+        </div>
+
+        <form id="bidForm" class="bid-form">
+          <div class="field">
+            <label for="bidAmount">Your bid</label>
+            <input id="bidAmount" type="number" min="${auction.price + 100}" step="100" value="${auction.price + 100}" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Place bid</button>
+        </form>
+
+        <div>
+          <h3>Bid history</h3>
+          <div class="history-list">
+            ${auction.bidHistory
+              .slice()
+              .reverse()
+              .map(
+                (bid) => `
+                  <div class="history-item">
+                    <span>${bid.bidder}</span>
+                    <strong>${formatCurrency(bid.amount)}</strong>
+                  </div>
+                `
+              )
+              .join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const bidForm = document.getElementById('bidForm');
+  bidForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const amount = Number(document.getElementById('bidAmount').value);
+    placeBid(auction.id, amount);
+  });
+
+  document.querySelector('[data-bid-action="quick"]').addEventListener('click', () => {
+    placeBid(auction.id, auction.price + 500);
+  });
+};
+
+const placeBid = (auctionId, amount) => {
+  const auction = getAuctionById(auctionId);
+  if (!auction) return;
+
+  if (amount <= auction.price) {
+    alert(`Your bid must be higher than ${formatCurrency(auction.price)}.`);
+    return;
   }
 
-  .stat-row {
-    grid-template-columns: 1fr;
+  auction.price = amount;
+  auction.bidHistory.push({ bidder: state.currentUser?.name || 'Guest Bidder', amount });
+  renderAuctionList();
+  renderAuctionDetail();
+  renderDashboard();
+  alert(`Bid placed successfully at ${formatCurrency(amount)}.`);
+};
+
+const renderTestimonials = () => {
+  const container = document.getElementById('testimonialList');
+  container.innerHTML = testimonials
+    .map(
+      (item) => `
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"${item.quote}"</p>
+          <h3>${item.name}</h3>
+          <p>${item.role}</p>
+        </div>
+      `
+    )
+    .join('');
+};
+
+const renderBlog = () => {
+  const container = document.getElementById('blogList');
+  container.innerHTML = blogPosts
+    .map(
+      (post) => `
+        <article class="blog-card">
+          <img src="${post.image}" alt="${post.title}" />
+          <div class="blog-content">
+            <div class="meta">${post.date}</div>
+            <h3>${post.title}</h3>
+          </div>
+        </article>
+      `
+    )
+    .join('');
+};
+
+const renderDashboard = () => {
+  const activeBidsCount = document.getElementById('activeBidsCount');
+  const watchlistCount = document.getElementById('watchlistCount');
+  const wonItemsCount = document.getElementById('wonItemsCount');
+  const annualSpend = document.getElementById('annualSpend');
+  const myBidsList = document.getElementById('myBidsList');
+  const watchlistList = document.getElementById('watchlistList');
+
+  const activeBids = auctions.filter((auction) => auction.price > 0).slice(0, 3);
+  const watchlistItems = auctions.filter((auction) => state.watchlist.has(auction.id));
+
+  activeBidsCount.textContent = activeBids.length;
+  watchlistCount.textContent = watchlistItems.length;
+  wonItemsCount.textContent = '2';
+  annualSpend.textContent = formatCurrency(240000);
+
+  myBidsList.innerHTML = activeBids
+    .map(
+      (auction) => `
+        <div class="mini-item">
+          <span>${auction.title}</span>
+          <strong>${formatCurrency(auction.price)}</strong>
+        </div>
+      `
+    )
+    .join('');
+
+  watchlistList.innerHTML = watchlistItems.length
+    ? watchlistItems
+        .map(
+          (auction) => `
+            <div class="mini-item">
+              <span>${auction.title}</span>
+              <button class="btn btn-secondary small" data-select-auction="${auction.id}">Open</button>
+            </div>
+          `
+        )
+        .join('')
+    : '<p>No lots saved yet.</p>';
+};
+
+const renderSellerDashboard = () => {
+  const activeListingsCount = document.getElementById('activeListingsCount');
+  const totalSalesAmount = document.getElementById('totalSalesAmount');
+  const itemsSoldCount = document.getElementById('itemsSoldCount');
+  const commissionEarned = document.getElementById('commissionEarned');
+  const sellerListingsList = document.getElementById('sellerListingsList');
+
+  const userListings = state.sellerListings.filter((listing) => listing.seller === state.currentUser?.name);
+  const totalSales = userListings.reduce((sum, listing) => sum + listing.price, 0);
+  const commission = totalSales * 0.1; // 10% commission
+
+  activeListingsCount.textContent = userListings.length;
+  totalSalesAmount.textContent = formatCurrency(totalSales);
+  itemsSoldCount.textContent = userListings.filter((l) => l.sold).length;
+  commissionEarned.textContent = formatCurrency(commission);
+
+  if (!userListings.length) {
+    sellerListingsList.innerHTML = '<p>No listings yet. Add your first item above!</p>';
+    return;
   }
 
-  .nav-actions .btn-outline {
-    display: none;
-  }
-
-  .card-info {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .gallery-stack {
-    grid-template-columns: 1fr;
-  }
-
-  .bid-actions,
-  .bid-form,
-  .footer-content {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-@media (min-width: 981px) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  sellerListingsList.innerHTML = userListings
+    .map(
+      (listing) => `
+        <div class="mini-item">
+          <span>${listing.title} ${listing.premium ? '<small class="premium-tag">Premium</small>' : ''}</span>
+          <strong>${formatCurrency(listing.price)}</strong>
+          <button class="btn btn-secondary small" data-delete-listing="${listing.id}">Remove</button>
+        </div>
+      `
+    )
+    .join('');
+};
+
+const updateCategoryOptions = () => {
+  const select = document.getElementById('categoryFilter');
+  const categories = ['all', ...Object.keys(categoryMeta)];
+
+  select.innerHTML = categories
+    .map((category) => `<option value="${category}">${category === 'all' ? 'All' : category}</option>`)
+    .join('');
+};
+
+const setupListeners = () => {
+  document.getElementById('categoryFilter').addEventListener('change', renderAuctionList);
+  document.getElementById('priceFilter').addEventListener('change', renderAuctionList);
+  document.getElementById('statusFilter').addEventListener('change', renderAuctionList);
+  document.getElementById('premiumOnly').addEventListener('change', renderAuctionList);
+
+  document.addEventListener('click', (event) => {
+    const watchBtn = event.target.closest('[data-watch]');
+    if (watchBtn) {
+      const auctionId = Number(watchBtn.dataset.watch);
+      if (state.watchlist.has(auctionId)) {
+        state.watchlist.delete(auctionId);
+      } else {
+        state.watchlist.add(auctionId);
+      }
+      localStorage.setItem('auctionWatchlist', JSON.stringify([...state.watchlist]));
+      renderFeaturedAuctions();
+      renderAuctionList();
+      renderAuctionDetail();
+      renderDashboard();
+      return;
+    }
+
+    const selectBtn = event.target.closest('[data-select-auction]');
+    if (selectBtn) {
+      state.selectedAuctionId = Number(selectBtn.dataset.selectAuction);
+      renderAuctionDetail();
+      document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    const categoryButton = event.target.closest('[data-category-filter]');
+    if (categoryButton) {
+      const selectedCategory = categoryButton.dataset.categoryFilter;
+      document.getElementById('categoryFilter').value = selectedCategory;
+      renderAuctionList();
+      document.getElementById('auctions').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    const authTrigger = event.target.closest('[data-open-auth]');
+    if (authTrigger) {
+      document.getElementById('authModal').classList.remove('hidden');
+      return;
+    }
+
+    const closeAuth = event.target.closest('[data-close-auth]');
+    if (closeAuth) {
+      document.getElementById('authModal').classList.add('hidden');
+      return;
+    }
+
+    const tabButton = event.target.closest('[data-auth-tab]');
+    if (tabButton) {
+      const target = tabButton.dataset.authTab;
+      document.querySelectorAll('.tab-btn').forEach((button) => button.classList.toggle('active', button === tabButton));
+      document.querySelectorAll('.auth-form').forEach((form) => form.classList.toggle('active', form.id === `${target}Form`));
+      return;
+    }
+
+    const deleteListingBtn = event.target.closest('[data-delete-listing]');
+    if (deleteListingBtn) {
+      const listingId = Number(deleteListingBtn.dataset.deleteListing);
+      state.sellerListings = state.sellerListings.filter((l) => l.id !== listingId);
+      localStorage.setItem('sellerListings', JSON.stringify(state.sellerListings));
+      renderSellerDashboard();
+      alert('Listing removed successfully.');
+      return;
+    }
+  });
+
+  document.getElementById('registerForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const user = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      country: document.getElementById('country').value,
+      interests: document.getElementById('interests').value
+    };
+    state.currentUser = user;
+    localStorage.setItem('auctionUser', JSON.stringify(user));
+    alert(`Welcome, ${user.name}! Your bidder registration is complete.`);
+    event.target.reset();
+    renderDashboard();
+    renderSellerDashboard();
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const name = email.split('@')[0] || 'Member';
+    state.currentUser = { name: name.charAt(0).toUpperCase() + name.slice(1), email };
+    localStorage.setItem('auctionUser', JSON.stringify(state.currentUser));
+    document.getElementById('authModal').classList.add('hidden');
+    renderDashboard();
+    renderSellerDashboard();
+    alert(`Logged in as ${state.currentUser.name}.`);
+    event.target.reset();
+  });
+
+  document.getElementById('signupForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const user = {
+      name: document.getElementById('signupName').value,
+      email: document.getElementById('signupEmail').value
+    };
+    state.currentUser = user;
+    localStorage.setItem('auctionUser', JSON.stringify(user));
+    document.getElementById('authModal').classList.add('hidden');
+    renderDashboard();
+    renderSellerDashboard();
+    alert(`Account created for ${user.name}.`);
+    event.target.reset();
+  });
+
+  document.getElementById('sellerListingForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    if (!state.currentUser) {
+      alert('Please login first to list an item.');
+      return;
+    }
+
+    const newListing = {
+      id: Math.max(...state.sellerListings.map((l) => l.id), 0) + 1,
+      title: document.getElementById('itemTitle').value,
+      category: document.getElementById('itemCategory').value,
+      description: document.getElementById('itemDescription').value,
+      price: Number(document.getElementById('startingPrice').value),
+      startPrice: Number(document.getElementById('startingPrice').value),
+      reservePrice: Number(document.getElementById('reservePrice').value),
+      duration: Number(document.getElementById('auctionDuration').value),
+      premium: document.getElementById('premiumListing').checked,
+      seller: state.currentUser.name,
+      status: 'Pending Review',
+      sold: false,
+      images: ['https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80'],
+      bidHistory: []
+    };
+
+    state.sellerListings.push(newListing);
+    localStorage.setItem('sellerListings', JSON.stringify(state.sellerListings));
+    renderSellerDashboard();
+    alert(`Item "${newListing.title}" listed successfully! It will be reviewed and go live shortly.`);
+    event.target.reset();
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    alert('Your inquiry has been sent. A specialist will contact you shortly.');
+    event.target.reset();
+  });
+
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const icon = document.querySelector('#themeToggle i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+  });
+
+  document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('.mobile-menu').classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach((link) => {
+    link.addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.remove('open');
+    });
+  });
+};
+
+const startCountdownClock = () => {
+  setInterval(() => {
+    const timerElements = document.querySelectorAll('.timer');
+    timerElements.forEach((element) => {
+      const auctionId = Number(element.closest('[data-select-auction]')?.dataset.selectAuction || element.closest('.auction-card')?.querySelector('[data-watch]')?.dataset.watch);
+      const auction = getAuctionById(auctionId);
+      if (auction) {
+        element.textContent = getTimeRemaining(auction.endDate);
+      }
+    });
+  }, 60000);
+};
+
+const init = () => {
+  updateCategoryOptions();
+  renderFeaturedAuctions();
+  renderCategoryGrid();
+  renderAuctionList();
+  renderAuctionDetail();
+  renderTestimonials();
+  renderBlog();
+  renderDashboard();
+  renderSellerDashboard();
+  setupListeners();
+  startCountdownClock();
+};
+
+init();
